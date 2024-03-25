@@ -25,6 +25,14 @@ const userSlice = createSlice({
   name: "userSlice",
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(createUser.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+      state.email = "";
+      state.error = "";
+    });
+  }
 });
 
 export default userSlice.reducer;
