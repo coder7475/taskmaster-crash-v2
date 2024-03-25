@@ -17,7 +17,10 @@ export const createUser = createAsyncThunk(
 
     console.log(data);
 
-    return;
+    return {
+      email: data.email,
+      name: data.name
+    };
   }
 );
 
@@ -30,6 +33,13 @@ const userSlice = createSlice({
       state.isLoading = true;
       state.isError = false;
       state.email = "";
+      state.error = "";
+    });
+    builder.addCase(createUser.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.isError = false;
+      state.email = payload.email;
+      state.name = payload.name;
       state.error = "";
     });
   }
