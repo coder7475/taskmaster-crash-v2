@@ -46,7 +46,7 @@ const userSlice = createSlice({
     });
     builder.addCase(createUser.rejected,(state, action) => {
       state.isLoading = false;
-      state.isError = false;
+      state.isError = true;
       state.email = "";
       state.name = "";
       state.error = action.error.message;
