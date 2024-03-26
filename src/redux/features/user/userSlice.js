@@ -18,8 +18,8 @@ export const createUser = createAsyncThunk(
     console.log(data);
 
     return {
-      email: data.email,
-      name: data.name
+      email: data.user.email,
+      name: data.user.displayName
     };
   }
 );
