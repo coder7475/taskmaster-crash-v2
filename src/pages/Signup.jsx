@@ -30,10 +30,11 @@ const Signup = () => {
   const onSubmit = ({ name, email, password }) => {
     // Email Password signup
     dispatch(createUser({
+      name,
       email,
       password
     }));
-    
+
     console.log(name, email, password);
   };
 
