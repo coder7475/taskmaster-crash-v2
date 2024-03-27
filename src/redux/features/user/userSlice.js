@@ -17,7 +17,7 @@ export const createUser = createAsyncThunk(
     await updateProfile(auth.currentUser, {
       displayName: name
     })
-    console.log(data);
+    // console.log(data);
 
     return {
       email: data.user.email,
