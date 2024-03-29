@@ -20,6 +20,9 @@ const PrivateRoute = ({ children }) => {
         }))
         dispatch(toggleLoading(false));
       }
+      else {
+        dispatch(toggleLoading(false));
+      }
     })
   }) 
   if (isLoading) {
