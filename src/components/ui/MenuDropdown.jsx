@@ -1,7 +1,13 @@
 import { Menu, Transition } from '@headlessui/react';
+import { signOut } from 'firebase/auth';
 import { Fragment } from 'react';
+import auth from '../../utils/firebase.config';
 
 export default function MenuDropdown({ children }) {
+  const logout = () => {
+    signOut(auth)
+  }
+
   return (
     <Menu as="div" className="relative inline-block text-left bg-white z-[999]">
       <div>
