@@ -36,6 +36,10 @@ const userSlice = createSlice({
     },
     toggleLoading: (state, {payload}) => {
       state.isLoading = payload;
+    }, 
+    logout: (state) => {
+      state.name = "";
+      state.email = "";
     }
   },
   extraReducers: (builder) => {
