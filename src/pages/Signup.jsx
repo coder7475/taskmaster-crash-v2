@@ -13,7 +13,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
-  const { isLoading, isError, error } = useSelector((state) => state.userSlice);
+  const { isError, error } = useSelector((state) => state.userSlice);
   useEffect(() => {
     if (
       password !== undefined &&
