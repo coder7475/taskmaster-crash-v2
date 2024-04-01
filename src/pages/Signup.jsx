@@ -4,6 +4,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../redux/features/user/userSlice';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
   const { handleSubmit, register, control } = useForm();
@@ -26,6 +27,10 @@ const Signup = () => {
       setDisabled(true);
     }
   }, [password, confirmPassword]);
+
+  useEffect(() => {
+    toast.error(error);
+  }, [isError, error])
 
   const onSubmit = ({ name, email, password }) => {
     // Email Password signup
