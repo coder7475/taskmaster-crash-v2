@@ -13,7 +13,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
-  const { isError, error } = useSelector((state) => state.userSlice);
+  const { isError, error, isLoading, email } = useSelector((state) => state.userSlice);
   useEffect(() => {
     if (
       password !== undefined &&
@@ -30,7 +30,13 @@ const Signup = () => {
 
   useEffect(() => {
     toast.error(error);
-  }, [isError, error])
+  }, [isError, error]);
+
+  useEffect(() => {
+    if (!isLoading && email) {
+      navigate("/");
+    }
+  }, [isLoading, email, navigate])
 
   const onSubmit = ({ name, email, password }) => {
     // Email Password signup
