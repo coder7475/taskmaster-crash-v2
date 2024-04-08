@@ -1,13 +1,13 @@
 import { ArrowRightIcon, TrashIcon } from '@heroicons/react/24/outline';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   removeTask,
-  updateStatus,
+  // updateStatus,
 } from '../../redux/features/tasks/tasksSlice';
 import { useUpdateTaskMutation } from '../../redux/features/api/baseApi';
 
 const TaskCard = ({ task }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [updateTask, { data, error }] = useUpdateTaskMutation();
 
   let updatedStatus;
@@ -40,7 +40,8 @@ const TaskCard = ({ task }) => {
           </button>
           <button
             onClick={() =>
-              dispatch(updateStatus({ id: task.id, status: updatedStatus }))
+              // dispatch(updateStatus({ id: task.id, status: updatedStatus }))
+              updateTask({ id: task?.id, status: updatedStatus})
             }
             title="Update Status"
           >
