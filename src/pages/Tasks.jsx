@@ -10,7 +10,9 @@ import { useGetTasksQuery } from '../redux/features/api/baseApi';
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
   // const { tasks } = useSelector((state) => state.tasksSlice);
-  const { data: tasks, isLoading, isError} = useGetTasksQuery();
+  const { data: tasks, isLoading, isError} = useGetTasksQuery(undefined, {
+    pollingInterval: 1000
+  });
 
   const pendingTasks = tasks?.filter((item) => item.status == 'pending');
   const runningTasks = tasks?.filter((item) => item.status == 'running');
