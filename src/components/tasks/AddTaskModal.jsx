@@ -15,7 +15,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
   };
 
   const onSubmit = (data) => {
-    addTask(data);
+    addTask({...data, status: 'pending'});
     onCancel();
   };
 
