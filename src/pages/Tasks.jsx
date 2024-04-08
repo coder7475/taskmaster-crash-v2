@@ -3,12 +3,14 @@ import MyTasks from '../components/tasks/MyTasks';
 import TaskCard from '../components/tasks/TaskCard';
 import AddTaskModal from '../components/tasks/AddTaskModal';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import MenuDropdown from '../components/ui/MenuDropdown';
+import { useGetTasksQuery } from '../redux/features/api/baseApi';
 
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { tasks } = useSelector((state) => state.tasksSlice);
+  // const { tasks } = useSelector((state) => state.tasksSlice);
+  const { data: tasks, isLoading, isError} = useGetTasksQuery();
 
   const pendingTasks = tasks?.filter((item) => item.status == 'pending');
   const runningTasks = tasks?.filter((item) => item.status == 'running');
